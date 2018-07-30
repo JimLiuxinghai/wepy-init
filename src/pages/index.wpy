@@ -1,0 +1,50 @@
+<style lang="less">
+  .index {
+
+  }
+</style>
+
+<template>
+  <view class="index" style="min-height: {{height}}px">
+    <view>首页</view>
+  </view>
+  
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import util from '../util/util'
+  import Api from '../util/api'
+  import envConfig from '../util/config'
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: ''
+    }
+    data = {
+      height: 0
+    }
+    
+    methods = {
+      //示例请求
+      async getData () {
+        let param = {
+            method: 'POST',
+            data: {
+                code: code
+            }
+        }
+        let data = await Api.demo(param)
+        return data;
+      }
+    }
+
+    async onLoad(options) {
+      
+      let sysInfo = wepy.getSystemInfoSync()
+      this.height = sysInfo.screenHeight
+      
+      
+      this.$apply()
+    }
+  }
+</script>

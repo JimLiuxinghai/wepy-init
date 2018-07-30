@@ -1,0 +1,40 @@
+<style lang="less">
+  .done {
+
+  }
+</style>
+
+<template>
+  <view class="done" style="min-height: {{height}}px">
+    <view>已完成</view>
+  </view>
+  
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import util from '../util/util'
+  import Api from '../util/api'
+  import envConfig from '../util/config'
+  export default class Done extends wepy.page {
+    config = {
+      navigationBarTitleText: ''
+    }
+    data = {
+      height: 0
+    }
+    
+    methods = {
+      
+    }
+
+    async onLoad(options) {
+      
+      let sysInfo = wepy.getSystemInfoSync()
+      this.height = sysInfo.screenHeight
+      
+      
+      this.$apply()
+    }
+  }
+</script>

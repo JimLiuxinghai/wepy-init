@@ -1,0 +1,49 @@
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/index',
+      'pages/detail',
+      'pages/rejected',
+      'pages/done',
+      'pages/me',
+      'pages/edit'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#82262D',
+      navigationBarTitleText: '法治郑东',
+      navigationBarTextStyle: 'white'
+    },
+    'tabBar': {
+        "list": [{
+          "pagePath": "pages/index",
+          "text": "未完成"
+        }, {
+          "pagePath": "pages/rejected",
+          "text": "被驳回"
+        }, {
+          "pagePath": "pages/done"
+          "text": "已完成"
+        }, {
+          "pagePath": "pages/me"
+          "text": "我的"
+        }]
+      },
+  }
+
+
+  constructor () {
+    super()
+    this.use('promisify');
+    this.use('requestfix')
+  }
+
+  onLaunch() {
+    
+  }
+}
+</script>
